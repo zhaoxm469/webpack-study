@@ -4,7 +4,7 @@
 
 ## 依赖使用  
 
-所有二级目录使用的nodemoduel依赖都在项目最外层  
+所有二级目录使用的nodemoduel依赖都在项目最外层    
 例如:02webpack样式打包文件夹 所用到的webpack的命令都是执行的webpack学习目录下的nodemodule下  
 这样避免在每一个目录都创建了一个nodemodule , 默认让他们共同引用一个父亲惜别的
 
