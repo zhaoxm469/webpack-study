@@ -2,6 +2,20 @@
 
 基本上就是把前面学习的东西, 全部串联起来  
 
+## 命令
+
+打包
+
+``` bash
+npx webpack
+```
+
+启动webpack-dev-server
+
+``` bash
+npx webpack-dev-server
+```
+
 ## 注意事项
 
 如果想输出的文件指定目录, 需要修改loader的outputPath
