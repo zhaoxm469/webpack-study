@@ -3,6 +3,8 @@
 这里记录了, 在学习webpack过程中的一些源码和笔记.  
 笔记默认都放在子目录的README.md文件夹里了
 
+[webpack plugins list](https://www.webpackjs.com/plugins/)
+
 ## 依赖使用  
 
 示例文件夹中, 所有引用的依赖都来自于 webpack-study/node_modules 文件夹下
