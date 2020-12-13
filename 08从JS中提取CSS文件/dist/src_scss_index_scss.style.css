@@ -1,0 +1,9 @@
+body {
+  background: greenyellow; }
+  body h1 {
+    text-align: center;
+    line-height: 100px;
+    font-size: 40px;
+    color: #fff;
+    width: 100%; }
+
