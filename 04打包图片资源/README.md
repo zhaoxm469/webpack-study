@@ -1,4 +1,4 @@
-# 图片资源打包
+# 打包图片资源
 
 需要准备的loader
 [url-loader](https://www.npmjs.com/package/url-loader)  
