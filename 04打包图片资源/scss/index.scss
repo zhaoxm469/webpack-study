@@ -1,0 +1,18 @@
+
+
+body{
+    background: pink;
+    .a1{
+        background: url('../01.png') no-repeat center;
+        // background: greenyellow;
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+    }
+    .a2{
+        background: url('../02.png') no-repeat center;
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+    }
+}

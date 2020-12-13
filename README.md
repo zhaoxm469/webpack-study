@@ -2,6 +2,8 @@
 
 这里记录了webpack学习过程中的一些注意事项
 
+* webpack 默认能引入json和js 用import 语法
+
 ## 依赖使用  
 
 示例文件夹中, 所有引用的依赖都来自于 webpack-study/node_modules 文件夹下
@@ -16,3 +18,7 @@
 ``` js
 npx webpack
 ```
+
+## 插件 plugin
+
+* html-webpack-plugin (默认会创建一个HTML文件)
