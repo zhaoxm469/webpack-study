@@ -1,4 +1,4 @@
-# 打包html资源
+# 打包样式资源
 
 首先利用vscode [webpack代码片段插件]([http://asdasd](https://marketplace.visualstudio.com/items?itemName=jeremyrajan.webpack)) wpstart 快速生成webpack一个启动的代码片段
 
