@@ -7,11 +7,14 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        publicPath: './',
     },
     module: {
         rules: [
-            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }, // 处理 scss 文件的 loader
-            // npm i url-loader file-loader -D , url-loader 是依赖于file-loader
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
             {
                 test: /\.(png|jpg|gif)$/,
                 use: [
@@ -25,6 +28,10 @@ module.exports = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
             },
         ],
     },
