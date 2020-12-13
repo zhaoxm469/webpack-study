@@ -1,60 +1,33 @@
 # 从JS中提取CSS文件
 
-基本前面学习的东西, 全部串联起来  
-deveolpement 开发环境主要目的就是能把本地的代码运行起来, 不考虑打包优化和浏览器js, css兼容性等问题~
+[ExtractTextWebpackPlugin](https://www.webpackjs.com/plugins/extract-text-webpack-plugin/)从 bundle 中提取文本(CSS)到单独的文件
 
-## 命令
+## 代码  
 
-打包
+首先安装
+npm install --save-dev extract-text-webpack-plugin
 
-``` bash
-npx webpack
-```
-
-启动webpack-dev-server
-
-``` bash
-npx webpack-dev-server
-```
-
-## 注意事项
-
-如果想输出的文件指定目录, 需要修改loader的outputPath
+loader配置 , 使用插件 extract-text-webpack-plugin 提供的loader 可以去掉 原来的style-loader.  
+因为style-loader 是将css插入到html中, 现在我们是要将他抽离成一个文件.  
 
 ``` js
 {
-    exclude: /.(html|png|gif|jpg|jpeg|scs|css|js)$/,
-    use: [{
-        loader: 'file-loader',
-        options: {
-            outputPath: 'fonts',
-        },
-    }],
-}
-```
-
-如果js里引用css和scss 在loader里要把这两个规则单独配置一下.
-
-``` js
-rules: [{
-    test: /\.scss$/,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
-}, {
     test: /\.css$/,
-    use: ['style-loader', 'css-loader'],
-}]
+    use: extractCSS.extract(['css-loader', 'postcss-loader'])
+}, {
+    test: /\.less$/i,
+    use: extractLESS.extract(['css-loader', 'less-loader'])
+},
 ```
 
-注意一下配置url-loader 限制图片大小的配置写法
+plugins配置
 
 ``` js
-{
-    test: /\.(png|gif|jpeg|jpg)$/,
-    use: [{
-        loader: 'url-loader',
-        options: {
-            limit: 8 * 1000,
-        },
-    }],
-}
+plugins: [
+    new ExtractTextPlugin('style.css')
+    //如果想要传入选项，你可以这样做：
+    //new ExtractTextPlugin({
+    //  filename: 'style.css'
+    //})
+]
 ```
