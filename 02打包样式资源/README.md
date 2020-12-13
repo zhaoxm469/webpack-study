@@ -23,3 +23,7 @@ rules: [{
 ``` bash
 npm install - D saas-loader style-loader sass-loader
 ```
+
+## 注意事项  
+
+cssloader 配置的顺序很重要, 是从后往前的执行, 顺序不可有误
