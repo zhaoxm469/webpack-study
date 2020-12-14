@@ -1,30 +1,42 @@
-# 从JS中提取CSS文件
+# CSS兼容性处理
 
-[mini-css-extract-plugin](https://www.webpackjs.com/plugins/extract-text-webpack-plugin/)这个插件提取CSS到单独的文件中
+选用[postcss-loader](https://www.postcss.com.cn/) + [autoprefixer](https://www.npmjs.com/package/autoprefixer) 来处理css浏览器兼容性问题.  
+[postcss-loader](https://www.postcss.com.cn/) 它是一个用 JavaScript 工具和插件转换 CSS 代码的工具. 用来负责进一步处理 CSS 文件, 比如添加浏览器前缀, 压缩 CSS 等.  
+[caniuse](https://www.caniuse.com/) 用来查询css 兼容性网站.  
+(Browserslist文档) [https://github.com/browserslist/browserslist]
 
 ## 代码  
 
 首先安装
-npm install --save-dev mini-css-extract-plugin
+npm install --save-dev  postcss-loader autoprefixer
 
-loader配置 , 使用插件 mini-css-extract-plugin 提供的loader 可以去掉 原来的style-loader.  
-因为style-loader 是将css插入到html中, 现在我们是要将他抽离成一个文件.  
+配置webpack.config.js文件
 
 ``` js
-{
+rules: [{
     test: /\.scss$/i,
-    use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-}
+    use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
+}]
 ```
 
-plugins配置
+创建postcss.config.jsw文件
 
 ``` js
-new MiniCssExtractPlugin({
-    filename: 'style.css',
-}),
+module.exports = {
+    plugins: [
+        require('autoprefixer'),
+    ]
+};
 ```
 
-## 注意事项
+并且在根目录创建.browserslistrc文件(如果不创建.browserslistrc文件 , 默认是找package.json文件下的browserslistrc属性).  
 
-在使用的过程中直接看的webpack文档提供的css抽离插件 【extract-text-webpack-plugin】插件  , 但是TM的 运行不起来, 最后发现是版本太老了.  作者宣布已经废弃了!!!
+``` bash
+>0.01%
+```
+
+## 注意事项  
+
+* .browserslistrc文件 和package.json文件配置不生效.  
+
+  务必配置postcss.config.js文件引入 autoprefixer , 或者在webpack 引入autoprefixer
