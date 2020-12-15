@@ -1,5 +1,5 @@
 body{
-    background: greenyellow;
+    
     h1{
         text-align: center;
         line-height: 100px;
@@ -8,4 +8,17 @@ body{
         width: 100%;
         display: flex;
     }
+    .box{
+        width: 375px;
+        height: 200px;
+        background: red;
+        border:1px solid #000;
+        color: #fff;
+        border-radius: 10px;
+    }
+}
+#app{
+    max-width: 750px;
+    background: #eee;
+    margin:0 auto;
 }
