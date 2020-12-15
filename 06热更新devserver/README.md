@@ -7,6 +7,14 @@
 
 [webpack-dev-server 文档](https://www.webpackjs.com/configuration/dev-server/)  
 
+## 说明 
+
+启动:devServer命令为:
+
+``` bash
+npx webapck-dev-server
+```
+
 ## 代码
 
 首先安装 cnpm install -D webpack-dev-server
@@ -20,12 +28,6 @@ devServer: {
     port: 9000,
     open: true
 }
-```
-
-启动:devServer命令为:
-
-``` bash
-npx webapck-dev-server
 ```
 
 ## 注意事项
