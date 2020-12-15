@@ -1,4 +1,4 @@
-# JS语法检测
+# JS eslint 语法检测
 
 [eslint-webpack-plugin](https://www.npmjs.com/package/eslint-webpack-plugin) 用于Webpack的ESLint插件.  
 
