@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer": "^10.1.0",
     "css-loader": "^5.0.1",
+    "css-minimizer-webpack-plugin": "^1.1.5",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -30,7 +31,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "browserslist":[
-      "cover 99.5%"
+  "browserslist": [
+    "cover 99.5%"
   ]
 }
