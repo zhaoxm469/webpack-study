@@ -16,3 +16,5 @@
 ## 其他问题  
 
 1. 后面需要了解以下webpack的cache属性, 看文档说可以提高webpack的构建速度
+2. sourceMap 是什么？
+3. CSS开启多进程压缩，
