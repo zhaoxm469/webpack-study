@@ -11,14 +11,6 @@ module.exports = {
     module: {
         rules: [{
             test: /\.scss$/i,
-            // use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', {
-            //     loader: 'postcss-loader',
-            //     options: {
-            //         plugins: [
-            //             autoprefixer,
-            //         ],
-            //     },
-            // }],
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
         }],
     },
@@ -29,7 +21,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.css',
         }),
-
     ],
     mode: 'development',
+    devServer: {
+        port: 9000,
+        open: true,
+    },
 };
