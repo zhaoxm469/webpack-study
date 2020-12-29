@@ -23,7 +23,7 @@ module.exports = {
                 viewport: 'width=device-width, initial-scale=1',
             },
         }),
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(),
     ],
     mode: 'development',
 };
