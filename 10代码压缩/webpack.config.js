@@ -2,12 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MinCssExtractPugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/main.js',
     output: {
-        filename: 'build',
+        filename: 'build.js',
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
@@ -17,10 +18,12 @@ module.exports = {
         }],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-        }),
+        new CleanWebpackPlugin(),
         new MinCssExtractPugin(),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/index.html'),
+            filename: 'index.html',
+        }),
     ],
     optimization: {
         minimize: true,

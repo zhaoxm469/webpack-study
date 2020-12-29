@@ -1,11 +1,3 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is not neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({});
 /************************************************************************/
@@ -54,7 +46,7 @@
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".build";
+/******/ 			return "" + chunkId + ".build.js";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -63,7 +55,7 @@
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".css";
+/******/ 			return "" + (chunkId === 179 ? "main" : chunkId) + ".css";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -214,11 +206,11 @@
 /******/ 		}
 /******/ 		// object to store loaded CSS chunks
 /******/ 		var installedCssChunks = {
-/******/ 			"main": 0
+/******/ 			179: 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = function(chunkId, promises) {
-/******/ 			var cssChunks = {"src_scss_index_scss":1};
+/******/ 			var cssChunks = {"239":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(function() {
@@ -241,7 +233,7 @@
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// Promise = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"main": 0
+/******/ 			179: 0
 /******/ 		};
 /******/ 		
 /******/ 		
@@ -332,9 +324,7 @@
 /******/ 	}();
 /******/ 	
 /************************************************************************/
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-eval("__webpack_require__.e(/*! import() */ \"src_scss_index_scss\").then(__webpack_require__.bind(__webpack_require__, /*! ./scss/index.scss */ \"./src/scss/index.scss\"));\n\n\n//# sourceURL=webpack:///./src/main.js?");
+__webpack_require__.e(/* import() */ 239).then(__webpack_require__.bind(__webpack_require__, 239));
+
 /******/ })()
 ;
