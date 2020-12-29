@@ -1,15 +1,34 @@
-# 打包样式资源
+# 前言  
 
-首先利用vscode [webpack代码片段插件]([http://asdasd](https://marketplace.visualstudio.com/items?itemName=jeremyrajan.webpack)) wpstart 快速生成webpack一个启动的代码片段
+默认webpack入口js文件是不能识别 css 资源的.
+如果能让他们识别 css 样式资源, 必须引用相关的loadr才可以.
 
-在项目创建目录创建.npmrc文件, 防止安装scss-loader 安装速度超级慢~~
-.npmrc
+## 识别css资源
+
+安装依赖
 
 ``` bash
-sass_binary_site = https: //npm.taobao.org/mirrors/node-sass/
+npm i -D style-loader
 ```
 
-在webpack配置rules, 让webpack 能识别sass语言  
+在webpack.config.js 配置css loader , 使能识别样式资源
+
+``` js
+rules: [{
+    test: /\.css$/,
+    use: ['style-loader', 'css-loader'],
+}, ],
+```
+
+## 识别scss资源
+
+安装依赖
+
+``` bash
+npm install -D sass saas-loader
+```
+
+webpack.config.js 配置 loader
 
 ``` js
 rules: [{
@@ -18,12 +37,16 @@ rules: [{
 }, ],
 ```
 
-终端输入命令安装依赖
-
-``` bash
-npm install - D saas-loader style-loader sass-loader
-```
-
 ## 注意事项  
 
-cssloader 配置的顺序很重要, 是从后往前的执行, 顺序不可有误
+1. loader 配置的顺序很重要, 从右往左执行的! 顺序不可有误
+
+2. 解决saas下载慢的问题
+
+在项目根目录创建.npmrc文件.
+
+.npmrc文件写入代码  
+
+``` bash
+sass_binary_site = https: //npm.taobao.org/mirrors/node-sass/
+```
