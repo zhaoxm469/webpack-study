@@ -14,7 +14,9 @@ npm i html-webpack-plugin clean-webpack-plugin -D
 在webpack.config.js 引入插件
 
 ``` js
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 plugins: [
@@ -29,7 +31,7 @@ plugins: [
             viewport: 'width=device-width, initial-scale=1',
         },
     }),
-    new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin()
 ]
 ```
 
@@ -37,3 +39,5 @@ plugins: [
 
 模式默认使用的是development .  
 如果模式使用的是正式的, html资源有些东西得注释掉, meta 标签信息.(暂时没有看原因, 学完后边的再回头看看查一下原因)
+
+CleanWebpackPlugin 插件在新版引用 是 `const = { CleanWebpackPlugin }` 改为这样的了
