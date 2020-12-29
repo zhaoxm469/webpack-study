@@ -1,6 +1,24 @@
+// import '@babel/polyfill';
+
 import('./scss/index.scss');
 
-function a(name) {
-    return name;
+// console.log(213);
+// (async () => {
+//     const data = await getList();
+//     console.log(data);
+//     // getList().then((res) => {
+//     //     console.log(res);
+//     // });
+// })();
+
+getList().then((res) => {
+    console.log(res);
+});
+
+function getList() {
+    return new Promise((reslove) => {
+        setTimeout(() => {
+            reslove(123123123);
+        }, 1000);
+    });
 }
-a(123);
