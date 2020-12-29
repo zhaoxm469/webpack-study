@@ -12,7 +12,7 @@
 启动:devServer命令为:
 
 ``` bash
-npx webapck-dev-server
+npx webpack-dev-server
 ```
 
 ## 代码
