@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
                 viewport: 'width=device-width, initial-scale=1',
             },
         }),
+        new CleanWebpackPlugin(['dist']),
     ],
     mode: 'development',
 };

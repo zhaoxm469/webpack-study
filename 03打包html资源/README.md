@@ -1,19 +1,22 @@
 # 打包完以后自动创建html资源
 
-需要准备的插件
-[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin)  
+[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin) 创建打包的html文件插件
+[clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) 删除dist目录插件
 
 ## 代码
 
 首先安装html-webpack-plugin
 
 ``` base
- npm i html-webpack-plugin -D
+ npm i html-webpack-plugin clean-webpack-plugin -D
 ```
 
 在webpack.config.js 引入插件
 
 ``` js
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 plugins: [
     new HtmlWebpackPlugin({
         title: '我titile',
@@ -26,6 +29,7 @@ plugins: [
             viewport: 'width=device-width, initial-scale=1',
         },
     }),
+    new CleanWebpackPlugin(['dist'])
 ]
 ```
 
