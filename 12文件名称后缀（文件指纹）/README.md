@@ -9,7 +9,7 @@
 * Hash
   + 和整个项目有关, 只要有项目文件修改, 就会发生改变  
 * ChunkHash
-  + 和webpack打包的chunk有关, 不同的entry会生成不同的chunk
+  + 和webpa12ck打包的chunk有关, 不同的entry会生成不同的chunk
 * ContentHash
   + 根据文件内容定义, 文件不变的化, 则ContentHash也不变
 
