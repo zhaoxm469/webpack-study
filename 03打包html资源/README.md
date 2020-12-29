@@ -8,7 +8,7 @@
 首先安装html-webpack-plugin
 
 ``` base
- npm i html-webpack-plugin clean-webpack-plugin -D
+npm i html-webpack-plugin clean-webpack-plugin -D
 ```
 
 在webpack.config.js 引入插件
