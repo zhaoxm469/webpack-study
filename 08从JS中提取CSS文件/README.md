@@ -1,28 +1,36 @@
-# 从JS中提取CSS文件
+# 说明
 
-[mini-css-extract-plugin](https://www.webpackjs.com/plugins/extract-text-webpack-plugin/)这个插件提取CSS到单独的文件中
+把CSS单独抽离出来, 主要用到的是这个插件[mini-css-extract-plugin](https://www.webpackjs.com/plugins/extract-text-webpack-plugin/).  
 
 ## 代码  
 
 首先安装
-npm install --save-dev mini-css-extract-plugin
 
-loader配置 , 使用插件 mini-css-extract-plugin 提供的loader 可以去掉 原来的style-loader.  
-因为style-loader 是将css插入到html中, 现在我们是要将他抽离成一个文件.  
+``` bash
+npm install -D mini-css-extract-plugin
+```
+
+webpack.config.js 配置
+
+> 使用 mini-css-extract-plugin 插件, 可以去掉style-loader 了, 因为style-loader 是把样式追加到html页面中去
 
 ``` js
-{
-    test: /\.scss$/i,
-    use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+module: {
+    rules: [{
+        test: /\.scss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+    }]
 }
 ```
 
 plugins配置
 
 ``` js
-new MiniCssExtractPlugin({
-    filename: 'style.css',
-}),
+plugins: [
+    new MiniCssExtractPlugin({
+        filename: 'style.css',
+    }),
+]
 ```
 
 ## 注意事项
