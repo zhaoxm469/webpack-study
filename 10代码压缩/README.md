@@ -3,7 +3,7 @@
 在上线前我们要进行一些静态资源的打包压缩
 
 [css-minimizer-webpack-plugin CSS压缩插件](https://www.npmjs.com/package/css-minimizer-webpack-plugin)  
-[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin)  
+[html-webpack-plugin HTML 处理插件](https://www.npmjs.com/package/html-webpack-plugin)  
 
 ## HTML资源压缩
 
