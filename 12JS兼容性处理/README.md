@@ -3,7 +3,7 @@
 [babel官网](https://www.babeljs.cn/)  
 [查看babel配合各个工具的指南](https://www.babeljs.cn/setup#installation)  
 
-## webpack.config.js babel 配置
+## webpack.config.js babel 配置 (兼容性基本处理)
 
 首先安装
 
@@ -40,7 +40,7 @@ webpack.config.js配置
 
 ** 以上只是低级转换, promise是不会转换的. 下面有其他方法进行语法转换.
 
-## 在线转换  
+## 全部JS兼容性( 在线转换) 处理
 
 但如果想要全部转换(在线转换), 可以在页面入口引用@babel/polyfill文件. 这样就能兼容所有ES2015+所有代码.  
 
@@ -77,16 +77,28 @@ import '@babel/polyfill';
         loader: 'babel-loader',
         options: {
             presets: [
-                ['@babel/preset-env', {
-                    usebuiltins: 'usage',
-                    corejs: {
-                        version: 3
+                [
+                    '@babel/preset-env',
+                    {
+                        // 是否按需加载
+                        useBuiltIns: 'usage',
+                        // 指定core-js版本
+                        corejs: {
+                            version: 3,
+                        },
+                        // 指定兼容哪些浏览器的版本
+                        targets: {
+                            chrome: '58',
+                            ie: '9',
+                        },
                     },
-                    targets: {
-                        "chrome": "58",
-                        "ie": "9",
-                    }
-                }],
+                ],
+            ],
+            plugins: [
+                [
+                    // 支持ES7 async await 语法
+                    '@babel/plugin-transform-runtime',
+                ],
             ],
         },
     }

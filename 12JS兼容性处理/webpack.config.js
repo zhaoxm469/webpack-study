@@ -27,21 +27,22 @@ module.exports = {
                         [
                             '@babel/preset-env',
                             {
+                                useBuiltIns: 'usage',
                                 corejs: {
                                     version: 3,
                                 },
                                 targets: {
                                     chrome: '58',
-                                    ie: '8',
+                                    ie: '9',
                                 },
                             },
                         ],
                     ],
-                    // plugins: [
-                    //     [
-                    //         '@babel/plugin-transform-runtime',
-                    //     ],
-                    // ],
+                    plugins: [
+                        [
+                            '@babel/plugin-transform-runtime',
+                        ],
+                    ],
                 },
             },
         },
