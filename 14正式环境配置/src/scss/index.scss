@@ -1,3 +1,14 @@
 body{
     background: greenyellow;
 }
+
+#box {
+    background: url('../images/home.png') no-repeat center;
+    background-size: cover;
+    width: 100px;
+    margin:20px;
+    height: 100px;
+    border:1px solid #eee;
+    border-radius: 5px;
+    display: flex;
+}
