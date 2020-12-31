@@ -1,5 +1,7 @@
 # JS eslint 语法检测
 
+eslint-loader 已经 `不推荐使用了` , 停止更新了!! 现在使用下面这个插件
+
 [eslint-webpack-plugin](https://www.npmjs.com/package/eslint-webpack-plugin) 用于Webpack的ESLint插件.  
 
 ## 代码
