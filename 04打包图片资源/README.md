@@ -15,32 +15,36 @@
 首先安装url-loader 和 file-loader , url-loader依赖于file-loader
 
 ``` base
- npm i url-loader file-loader -D, url-loader 是依赖于file-loader
+npm i url-loader file-loader -D
 ```
 
 在webpack.config.js 写入规则
 
 ``` js
-{
-    test: /\.(png|jpg|gif)$/,
-    use: [{
-        loader: 'url-loader',
-        options: {
-            // 限制图片打小，超过8192b,使用base64 否则使用 图片引用
-            // 优点：使用base64 能减少http请求，减少服务器压力
-            // 缺点：如果base64过大 ， 请求js资源会变慢，因为js资源会变大
-            limit: 8192,
-        },
-    }, ],
+module: {
+    rules: [{
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+            loader: 'url-loader',
+            options: {
+                // 限制图片打小，超过8192b,使用base64 否则使用 图片引用
+                // 优点：使用base64 能减少http请求，减少服务器压力
+                // 缺点：如果base64过大 ， 请求js资源会变慢，因为js资源会变大
+                limit: 8192,
+            },
+        }, ],
+    }]
 }
 ```
 
-如果图片在html文件中引用, 需要安装html-loader, 负责引入img, 从而能北url-loader进行处理
+如果图片在html文件中引用, 需要安装html-loader, 负责引入img, 从而能被url-loader进行处理
 
 ``` js
-{
-    test: /\.html$/i,
-    loader: 'html-loader',
+module: {
+    rules: [{
+        test: /\.html$/i,
+        loader: 'html-loader',
+    }]
 }
 ```
 
@@ -52,12 +56,12 @@ Automatic publicPath is not supported in this browser -> (此浏览器不支持�
 在webpack.config.js output 增加 publicPath: './'
 
 ``` js
- output: {
-     publicPath: './',
- },
+output: {
+    publicPath: './',
+}
 ```
 
 如果css和html中 共同引用了一个图片资源, webpack会默认识别, 把他们的引用指向同一个地址, 不会创建两个图片资源.  
 例如:  
 如果css引用一个图片 webpack会把他默认转成base64的话, 如果再在html引用相同的图片.  
-webpack打包完以后的文件 两个地方 引用的是同一个base64地址, 超过打小限制的图片也亦是如此.
+webpack打包完以后的文件 两个地方 引用的是同一个base64地址, 大小打小限制的图片也亦是如此.
