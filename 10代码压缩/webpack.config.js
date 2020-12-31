@@ -23,6 +23,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
             filename: 'index.html',
+            minify: {
+                // 去掉空格
+                collapseInlineTagWhitespace: true,
+                // 去掉注释
+                removeComments: true,
+            },
         }),
     ],
     optimization: {
