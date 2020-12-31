@@ -10,6 +10,21 @@
 如果引用html-webpack-plugin插件以后, 我们无需做其他处理.  
 mode 为正式环境的时候, 插件会自动启动html压缩功能
 
+``` js
+plugins: [
+    new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, 'src/index.html'),
+        filename: 'index.html',
+        minify: {
+            // 去掉空格
+            collapseInlineTagWhitespace: true,
+            // 去掉注释
+            removeComments: true,
+        },
+    }),
+],
+```
+
 ## JS资源压缩
 
 我们无需处理.  
