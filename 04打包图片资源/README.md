@@ -46,7 +46,7 @@
 
 ## 注意事项
 
-当我引入html-loader打包html中的图片资源的时候 报了错, 
+当我引入html-loader打包html中的图片资源的时候 报了错!  
 Automatic publicPath is not supported in this browser -> (此浏览器不支持自动公共路径)  
 解决办法:
 在webpack.config.js output 增加 publicPath: './'
