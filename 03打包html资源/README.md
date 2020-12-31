@@ -1,7 +1,7 @@
 # 打包完以后自动创建html资源
 
-[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin) 创建打包的html文件插件
-[clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) 删除dist目录插件
+[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin) 创建打包的html文件插件  
+[clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) 删除dist目录插件  
 
 ## 代码
 
