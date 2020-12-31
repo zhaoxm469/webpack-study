@@ -1,20 +1,21 @@
 # 打包图片资源
 
-需要准备的loader
+需要准备的loader  
+
 [url-loader](https://www.npmjs.com/package/url-loader)  
 [file-loader](https://www.npmjs.com/package/file-loader)  
 [html-loader](https://www.npmjs.com/package/html-loader)
 
-把css背景图引用的图片资源转换成base64格式
-优点: 转换为base64以后, 会减少对服务器的http请求, 减少服务器压力
-缺点: 如果base64过大, js包的体积会变大, 会影响js文件加载速度
+把css背景图引用的图片资源转换成base64格式  
+优点: 转换为base64以后, 会减少对服务器的http请求, 减少服务器压力  
+缺点: 如果base64过大, js包的体积会变大, 会影响js文件加载速度  
 
 ## 代码
 
 首先安装url-loader 和 file-loader , url-loader依赖于file-loader
 
 ``` base
- npm i url - loader file - loader - D, url - loader 是依赖于file - loader
+ npm i url-loader file-loader -D, url-loader 是依赖于file-loader
 ```
 
 在webpack.config.js 写入规则
