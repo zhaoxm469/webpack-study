@@ -1,6 +1,6 @@
 # 前言  
 
-默认webpack入口js文件是不能识别 css 资源的.
+默认webpack入口js文件是不能识别 css 资源的.  
 如果能让他们识别 css 样式资源, 必须引用相关的loadr才可以.
 
 ## 识别css资源
@@ -31,10 +31,12 @@ npm install -D sass saas-loader
 webpack.config.js 配置 loader
 
 ``` js
-rules: [{
-    test: /\.scss$/,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
-}, ],
+module: {
+    rules: [{
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+    }, ],
+}
 ```
 
 ## 注意事项  
@@ -48,5 +50,5 @@ rules: [{
 .npmrc文件写入代码  
 
 ``` bash
-sass_binary_site = https: //npm.taobao.org/mirrors/node-sass/
+sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 ```
