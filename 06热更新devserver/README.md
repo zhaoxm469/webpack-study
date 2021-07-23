@@ -14,7 +14,9 @@
 启动:devServer命令为:
 
 ``` bash
-npx webpack-dev-server
+yarn webpack serve 
+# 或者
+npx webpack-dev-serve
 ```
 
 ## 代码
@@ -33,6 +35,9 @@ devServer: {
 ```
 
 ## 注意事项
+
+通过命令 yarn webpack serve 命令启动  
+因为webpack5. X与webpack-dev-server有些冲突, 无法直接使用webpack-dev-server启动服务, 只能通过这种方式去调用webpack-dev-server, 并且这种方式不能使用 --open 自动打开浏览器, 也有可能是我没找到正确打开方式, 有兴趣的读者可以看官网介绍.
 
 在输入命令 启动webpack-dev-server 的时候 , 终端一直报错 Error: Cannot find module 'webpack-cli/bin/config-yargs'.  
 原因是:webpack-cli 与 webpack-dev-server 不兼容.  

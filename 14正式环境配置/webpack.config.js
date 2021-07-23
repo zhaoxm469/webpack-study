@@ -1,9 +1,11 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
+
+const commonCssLoad = [MiniCssExtractPlugin.loader, 'css-loader'];
 
 module.exports = {
     entry: resolve(__dirname, './src/main.js'),
@@ -16,11 +18,11 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: commonCssLoad,
             },
             {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', {
+                use: [...commonCssLoad, {
                     loader: 'postcss-loader',
                 }, 'sass-loader'],
             },
@@ -31,41 +33,19 @@ module.exports = {
                     options: {
                         limit: 10 * 10,
                         name: 'images/[name][hash:8].[ext]',
-                        publicPath: '../',
+                        publicPath: '/',
                     },
                 }],
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader',
             },
             {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: [{
                     loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            [
-                                '@babel/preset-env',
-                                {
-                                    // 是否按需加载
-                                    useBuiltIns: 'usage',
-                                    // 指定core-js版本
-                                    corejs: {
-                                        version: 3,
-                                    },
-                                    // 指定兼容哪些浏览器的版本
-                                    targets: {
-                                        chrome: '58',
-                                        ie: '9',
-                                    },
-                                },
-                            ],
-                        ],
-                        plugins: [
-                            [
-                                // 支持ES7 async await 语法
-                                '@babel/plugin-transform-runtime',
-                            ],
-                        ],
-                    },
                 }],
             },
             {
@@ -94,8 +74,9 @@ module.exports = {
     ],
     mode: 'production',
     devServer: {
-        contentBase: resolve(__dirname, 'dist'),
-        host: '0.0.0.0',
+        contentBase: join(__dirname, 'dist'),
+        compress: true,
+        port: 9000,
         open: true,
     },
 };

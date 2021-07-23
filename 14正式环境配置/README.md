@@ -16,4 +16,4 @@
 ## 注意事项
 
 * js引入iconfont 字体的时候报路径的错误 , 在webpack.config.js 加入  publicPath: './' 即可.
-* 在filename 前边加上 文件夹路径, 打包会自动放到指定文件夹下.  例如 : filename:bundel.js  改成 js/bundel.js 会在dist自动生成 dist/js/budel.js 
+* 在filename 前边加上 文件夹路径, 打包会自动放到指定文件夹下.  例如 : filename:bundel.js  改成 js/bundel.js 会在dist自动生成 dist/js/budel.js  

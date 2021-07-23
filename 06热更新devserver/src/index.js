@@ -1,3 +1,3 @@
 import('../index.css');
 
-document.body.innerHTML = 123333;
+// document.body.innerHTML = 123333;
